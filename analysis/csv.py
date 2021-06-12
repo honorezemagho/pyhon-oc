@@ -2,7 +2,9 @@
 # coding: utf-8
 
 import os
+import logging as lg
 
+lg.basicConfig(level=lg.DEBUG)
 
 
 def launch_analysis(data_file):
@@ -12,18 +14,11 @@ def launch_analysis(data_file):
     try:
         with open(path_to_file, "r") as file:
             preview = file.readline()  # read first line
-            print(
-                "Yeah! We managed to read the file. Here is as preview: {}".format(
+            lg.info(
+                "Yeah! We managed to read the file. Here is a preview: {}".format(
                     preview
                 )
             )
-    except  FileNotFoundError as nfe:
-        print("Ow :( The file was not found.", nfe)
+    except FileNotFoundError as nfe:
+        lg.critical("Ow :( The file was not found. Here is the message %s", nfe)
 
-
-def main():
-    launch_analysis("current_mps.csv")
-
-
-if __name__ == "__main__":
-    main()

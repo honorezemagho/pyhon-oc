@@ -13,13 +13,11 @@ def parse_arguments():
 
 def main():
     args = parse_arguments()
+    # import pdb; pdb.set_trace()
     if args.extension == "csv":
-        c_an.launch_analysis('current_mps.csv')
+        c_an.launch_analysis('current_mps1.csv')
     elif args.extension == "xml":
         c_an.launch_analysis('SyceronBrut.xml')
 
 if __name__ == "__main__":
     main()
-    print("The function was not imported as a module")
-else:
-    print('The function was imported as a module')

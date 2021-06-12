@@ -1,3 +1,5 @@
 {
-    "python.formatting.provider": "black"
+    "python.formatting.provider": "black",
+    "jupyter.jupyterServerType": "local",
+    "jupyter.logging.level": "debug"
 }

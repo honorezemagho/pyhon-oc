@@ -6,6 +6,7 @@ import argparse
 import analysis.csv as c_an 
 import analysis.xml as x_an
 import logging as lg
+import re
 
 def parse_arguments(): 
     parser = argparse.ArgumentParser() 
@@ -21,8 +22,10 @@ def main():
         datafile = args.datafile
         if datafile == None:
             raise Warning('You must indicate a datafile!')
+        e = re.search(r'^.+\.(\D{3})$', str(datafile))
+        extension = e.group(1)
+
         
-        extension = args.extension 
         if extension == None:
             raise Warning('You must indicate an extension either csv or xml!')
         
